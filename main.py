@@ -56,3 +56,8 @@ class QueryRequest(BaseModel):
 def chat(request: QueryRequest):
     response = rag_chain.invoke(request.question)
     return {"response": response}
+
+# ✅ Add this route to return a default message at /
+@app.get("/")
+def read_root():
+    return {"message": "FastAPI app is running 🚀"}
